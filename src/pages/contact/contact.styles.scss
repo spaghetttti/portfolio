@@ -1,0 +1,134 @@
+.contact-page {
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+  ul {
+    padding: 0;
+    margin: 0;
+
+    li {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      margin-bottom: 10px;
+      opacity: 0;
+      overflow: hidden;
+      display: block;
+      clear: both;
+      position: relative;
+      animation: fadeInUp 2s 2s;
+      animation-fill-mode: forwards;
+    }
+
+    li.half {
+      width: 49%;
+      margin-left: 2%;
+      float: left;
+      clear: none;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+
+  input[type="text"],
+  input[type="email"] {
+    font-family: "Smooch Sans", sans-serif;
+    width: 100%;
+    border: 0;
+    background: #115173;
+    height: 50px;
+    font-size: 22px;
+    color: rgb(255, 255, 255);
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  textarea {
+    font-family: "Smooch Sans", sans-serif;
+    width: 100%;
+    border: 0;
+    background: #115173;
+    height: 50px;
+    font-size: 22px;
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    min-height: 150px;
+  }
+
+  .flat-button {
+    background: #115173;
+    cursor: pointer;
+    &:hover {
+      background-color: #fff;
+      color: #115173;
+      border-color: #115173;
+    }
+  }
+}
+
+.info-map {
+  // position: absolute;
+  background: #115173;
+  font-family: "Smooch Sans", sans-serif;
+  // top: 25%;
+  // right: 15%;
+  z-index: 999999;
+  width: 367px;
+  padding: 20px;
+  color: #fff;
+  font-size: 26px;
+  font-weight: 300;
+  opacity: 0;
+  animation: fadeIn 1s 1.5s;
+  animation-fill-mode: forwards;
+
+  span {
+    font-size: 21px;
+  }
+}
+
+.list {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+  svg {
+    color: white;
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+  }
+  svg:hover {
+    color: #6992a9;
+    transform: scale(1.2);
+  }
+}
+
+/* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+  .contact-page {
+    .text-zone {
+      h1 {
+        font-size: 56px;
+      }
+    }
+    .info-map {
+      width: 84%;
+    }
+  }
+}
+
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+  .contact-page {
+    .text-zone {
+      h1 {
+        font-size: 65px;
+      }
+    }
+  }
+}

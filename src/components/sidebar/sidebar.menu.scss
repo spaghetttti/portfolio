@@ -1,0 +1,80 @@
+.ham {
+    position: absolute;
+    right: 5%;
+    top: -7px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 400ms;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  .hamRotate.active {
+    transform: rotate(45deg);
+  }
+  .hamRotate180.active {
+    transform: rotate(180deg);
+  }
+  .line {
+    fill:none;
+    transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+    stroke:rgb(255, 255, 255);
+    stroke-width:5.5;
+    stroke-linecap:round;
+  }
+  
+  
+  .ham8 .top {
+    stroke-dasharray: 40 160;
+  }
+  .ham8 .middle {
+    stroke-dasharray: 40 142;
+    transform-origin: 50%;
+    transition: transform 400ms;
+  }
+  .ham8 .bottom {
+    stroke-dasharray: 40 85;
+    transform-origin: 50%;
+    transition: transform 400ms, stroke-dashoffset 400ms;
+  }
+  .ham8.active .top {
+    stroke-dashoffset: -64px;
+  }
+  .ham8.active .middle {
+    //stroke-dashoffset: -20px;
+    transform: rotate(90deg);
+  }
+  .ham8.active .bottom {
+    stroke-dashoffset: -64px;
+  }
+  
+  .unset {
+    opacity: 0;
+    display: none;
+  }
+
+
+  .open {
+    background-color: white;
+    z-index: 5;
+    position: absolute;
+    left: 12.5%;
+    top: 20%;
+    opacity: 1;
+    width: 75%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    transition: 0.4s;
+
+    &>a {
+        font-size: 40px;
+        font-family: 'Smooch Sans', sans-serif; 
+        text-decoration: none;
+        color: #181818;
+    }
+  }
