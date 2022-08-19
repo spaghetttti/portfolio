@@ -9,6 +9,8 @@ import {
   faInstagramSquare,
   faTelegram,
 } from '@fortawesome/free-brands-svg-icons'
+import Loader from '../../components/loader/loader.component'
+
 
 const Contact = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
@@ -131,9 +133,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
-      <div class="box">
-        <div class="plane"></div>
-      </div>
+      <Loader/>
     </>
   )
 }
