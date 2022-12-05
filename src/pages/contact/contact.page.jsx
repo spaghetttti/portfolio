@@ -1,20 +1,19 @@
-import { useEffect, useState } from 'react'
-import { useRef } from 'react'
-import emailjs from '@emailjs/browser'
-import AnimatedLetters from '../../components/animated-letters/animated-letter.component'
-import './contact.styles.scss'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useEffect, useState } from "react";
+import { useRef } from "react";
+import emailjs from "@emailjs/browser";
+import AnimatedLetters from "../../components/animated-letters/animated-letter.component";
+import "./contact.styles.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGithubSquare,
   faInstagramSquare,
   faTelegram,
-} from '@fortawesome/free-brands-svg-icons'
-import Loader from '../../components/loader/loader.component'
-
+} from "@fortawesome/free-brands-svg-icons";
+import Loader from "../../components/loader/loader.component";
 
 const Contact = () => {
-  const [letterClass, setLetterClass] = useState('text-animate')
-  const form = useRef()
+  const [letterClass, setLetterClass] = useState("text-animate");
+  const form = useRef();
 
   useEffect(() => {
     const AnimateHover = setTimeout(() => {
@@ -24,25 +23,25 @@ const Contact = () => {
   }, []);
 
   const sendEmail = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     emailjs
       .sendForm(
-        'service_f7gpwig',
-        'template_1pdwbmh',
+        "service_f7gpwig",
+        "template_1pdwbmh",
         form.current,
-        'cTFusmlbbi6oj4dfP'
+        "cTFusmlbbi6oj4dfP"
       )
       .then(
         () => {
-          alert('Message successfully sent!')
-          window.location.reload(false)
+          alert("Message successfully sent!");
+          window.location.reload(false);
         },
         () => {
-          alert('Failed to send the message, please try again')
+          alert("Failed to send the message, please try again");
         }
-      )
-  }
+      );
+  };
 
   return (
     <>
@@ -51,7 +50,7 @@ const Contact = () => {
           <h1>
             <AnimatedLetters
               letterClass={letterClass}
-              strArray={['C', 'o', 'n', 't', 'a', 'c', 't', ' ', 'm', 'e']}
+              strArray={["C", "o", "n", "t", "a", "c", "t", " ", "m", "e"]}
               idx={15}
             />
           </h1>
@@ -97,45 +96,46 @@ const Contact = () => {
           </div>
         </div>
         <div className="info-map">
-          Asilbek,
-          <br />
-          Tashkent, Uzbekistan
-          <br />
-          Email: <span>asil9802mum@gmail.com</span>
-          <br />
-          Telegram: <span>@spaghetttti</span>
-          <br />
-          Postal Code: <span>100043</span>
-          <br />
-          <div className='list'>
-                <a
-                  target="_blank"
-                  rel="noreferrer"
-                  href="https://t.me/spaghetttti"
-                >
-                  <FontAwesomeIcon icon={faTelegram}  />
-                </a>
-                <a
-                  target="_blank"
-                  rel="noreferrer"
-                  href="https://github.com/spaghetttti/"
-                >
-                  <FontAwesomeIcon icon={faGithubSquare}  />
-                </a>
-                <a
-                  target="_blank"
-                  rel="noreferrer"
-                  href="https://www.instagram.com/spaghetttti_/"
-                >
-                  <FontAwesomeIcon icon={faInstagramSquare} />
-                </a>
-
-          </div>
+          <p>
+            Asilbek,
+            <br />
+            Tashkent, Uzbekistan
+            <br />
+            Email: <span>asil9802mum@gmail.com</span>
+            <br />
+            Telegram: <span>@spaghetttti</span>
+            <br />
+            Postal Code: <span>100043</span>
+            <br />
+            <div className="list">
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://t.me/spaghetttti"
+              >
+                <FontAwesomeIcon icon={faTelegram} />
+              </a>
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://github.com/spaghetttti/"
+              >
+                <FontAwesomeIcon icon={faGithubSquare} />
+              </a>
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://www.instagram.com/spaghetttti_/"
+              >
+                <FontAwesomeIcon icon={faInstagramSquare} />
+              </a>
+            </div>
+          </p>
         </div>
       </div>
-      <Loader/>
+      <Loader />
     </>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

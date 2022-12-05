@@ -19,7 +19,8 @@
 .about-page {
   background-color: rgba(5, 106, 76, 0.44);
   color: #333333;
-  justify-content: flex-end;
+  justify-content: space-around ;
+  overflow: auto;
 }
 
 .contact-page {
@@ -37,7 +38,7 @@
 .contact-page {
   display: flex;
   align-items: center;
-
+  flex-wrap: wrap;
   .text-zone {
     width: 38%;
     max-height: 90%;

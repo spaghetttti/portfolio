@@ -77,13 +77,16 @@
   // right: 15%;
   z-index: 999999;
   width: 367px;
-  padding: 20px;
+  // padding: 20px;
   color: #fff;
   font-size: 26px;
   font-weight: 300;
   opacity: 0;
   animation: fadeIn 1s 1.5s;
   animation-fill-mode: forwards;
+  p {
+    margin: 20px;
+  }
 
   span {
     font-size: 21px;
@@ -125,6 +128,7 @@
 /* Portrait and Landscape */
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
   .contact-page {
+    gap: 15px;
     .text-zone {
       h1 {
         font-size: 65px;

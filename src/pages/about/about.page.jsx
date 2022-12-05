@@ -12,6 +12,7 @@ import {
 
 import './about.styles.scss'
 import Loader from '../../components/loader/loader.component'
+import Cube from '../../components/cube/cube.component'
 
 const About = () => {
     const [letterClass, setLetterClass] = useState('text-animate')
@@ -52,7 +53,7 @@ const About = () => {
         </p>
       </div>
 
-      <div className="stage-cube-cont">
+      {/* <div className="stage-cube-cont">
         <div className="cubespinner">
             <div className="face1">
                 <FontAwesomeIcon icon={faReact} />
@@ -73,7 +74,8 @@ const About = () => {
                 <FontAwesomeIcon icon={faNode} />
             </div>
         </div>
-      </div>
+      </div> */}
+      <Cube/>
     </div>
     <Loader/>
     </>
