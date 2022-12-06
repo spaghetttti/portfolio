@@ -1,17 +1,9 @@
 import { useState, useEffect } from 'react'
 import AnimatedLetters from '../../components/animated-letters/animated-letter.component'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-    faNode,
-    faSass,
-    faGitAlt,
-    faHtml5,
-    faJsSquare,
-    faReact,
-  } from '@fortawesome/free-brands-svg-icons'
-
 import './about.styles.scss'
 import Loader from '../../components/loader/loader.component'
+import Cube1 from '../../components/cube/cube1.component'
+import DownloadFiles from '../../components/download-files/download-files.component'
 
 const About = () => {
     const [letterClass, setLetterClass] = useState('text-animate')
@@ -50,30 +42,9 @@ const About = () => {
             happy to work and collaborate on more complex projects with other 
             engineers.
         </p>
+        <DownloadFiles/>
       </div>
-
-      <div className="stage-cube-cont">
-        <div className="cubespinner">
-            <div className="face1">
-                <FontAwesomeIcon icon={faReact} />
-            </div>
-            <div className="face2">
-                <FontAwesomeIcon icon={faHtml5} />
-            </div>
-            <div className="face3">
-                <FontAwesomeIcon icon={faSass} />
-            </div>
-            <div className="face4">
-                <FontAwesomeIcon icon={faJsSquare} />
-            </div>
-            <div className="face5">
-                <FontAwesomeIcon icon={faGitAlt} />
-            </div>
-            <div className="face6">
-                <FontAwesomeIcon icon={faNode} />
-            </div>
-        </div>
-      </div>
+      <Cube1/>
     </div>
     <Loader/>
     </>
