@@ -68,7 +68,7 @@ const Projects = () => {
             <p className="desc">
               <h6 className="title">Contact App</h6>
               Manage your contacts with this app <br />
-              Tech-stack: React & Redux Toolkit | React Form Hook | Tailwind Css
+              Tech-stack: React with TypeScript & Redux Toolkit | React Form Hook | Tailwind Css
             </p>
           </div>
         </div>
