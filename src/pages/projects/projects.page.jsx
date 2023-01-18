@@ -6,6 +6,7 @@ import "./projects.styles.scss";
 
 import UGL from "../../assets/ugl.png";
 import CRWN from "../../assets/crwn.png";
+import ContactApp from '../../assets/contact-app.png';
 
 const Projects = () => {
   const [letterClass, setLetterClass] = useState("text-animate");
@@ -49,14 +50,25 @@ const Projects = () => {
             </p>
           </div>
           <div className="project">
-            <a href="https://spaghetttti.github.io/lesson-27/">
+            <a href="https://spaghetttti.github.io/habibi-shop/">
               <div className="img-overlay"><p className="fade-in-details">Visit</p></div>
               <img src={CRWN} alt="screenshot of webpage" />
             </a>
             <p className="desc">
               <h6 className="title">Online Shop page</h6>
               Clothing e-commerce platform <br />
-              Tech-stack: React & Redux | Firebase <br />| Jest | Mocha-Chai
+              Tech-stack: React & Redux | Firebase authentication<br />
+            </p>
+          </div>
+          <div className="project">
+            <a href="https://glittery-gumdrop-6cacd3.netlify.app/">
+              <div className="img-overlay"><p className="fade-in-details">Visit</p></div>
+              <img src={ContactApp} alt="screenshot of webpage" />
+            </a>
+            <p className="desc">
+              <h6 className="title">Contact App</h6>
+              Manage your contacts with this app <br />
+              Tech-stack: React & Redux Toolkit | React Form Hook | Tailwind Css
             </p>
           </div>
         </div>
