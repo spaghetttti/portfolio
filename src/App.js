@@ -7,6 +7,7 @@ import Home from './pages/home/home.page.jsx';
 import About from './pages/about/about.page';
 import Projects from './pages/projects/projects.page';
 import Contact from './pages/contact/contact.page';
+import FavoriteMusic from './pages/about/favorite';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path='about' element={<About/>}/>
           <Route path='projects' element={<Projects/>}/>
           <Route path='contact' element={<Contact/>}/>
+          <Route path='favorite' element={<FavoriteMusic/>}/>
         </Route>
       </Routes>
     </>
