@@ -4,11 +4,7 @@ import emailjs from "@emailjs/browser";
 import AnimatedLetters from "../../components/animated-letters/animated-letter.component";
 import "./contact.styles.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faGithubSquare,
-  faInstagramSquare,
-  faLinkedin,
-} from "@fortawesome/free-brands-svg-icons";
+import { faGithubSquare, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 // import loader from "../../components/loader/loader.component";
 
 const Contact = () => {
@@ -121,13 +117,6 @@ const Contact = () => {
                 href="https://github.com/spaghetttti/"
               >
                 <FontAwesomeIcon icon={faGithubSquare} />
-              </a>
-              <a
-                target="_blank"
-                rel="noreferrer"
-                href="https://www.instagram.com/spaghetttti_/"
-              >
-                <FontAwesomeIcon icon={faInstagramSquare} />
               </a>
             </div>
           </p>
