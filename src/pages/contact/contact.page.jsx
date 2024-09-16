@@ -7,9 +7,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGithubSquare,
   faInstagramSquare,
-  faTelegram,
+  faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
-import Loader from "../../components/loader/loader.component";
+// import loader from "../../components/loader/loader.component";
 
 const Contact = () => {
   const [letterClass, setLetterClass] = useState("text-animate");
@@ -111,9 +111,9 @@ const Contact = () => {
               <a
                 target="_blank"
                 rel="noreferrer"
-                href="https://t.me/spaghetttti"
+                href="https://www.linkedin.com/in/asil-muminov/"
               >
-                <FontAwesomeIcon icon={faTelegram} />
+                <FontAwesomeIcon icon={faLinkedin} />
               </a>
               <a
                 target="_blank"
@@ -133,7 +133,6 @@ const Contact = () => {
           </p>
         </div>
       </div>
-      <Loader />
     </>
   );
 };

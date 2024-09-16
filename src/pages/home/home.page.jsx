@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import AnimatedLetters from '../../components/animated-letters/animated-letter.component'
 import Logo from '../../components/logo/logo.component'
 import LogoAwhite from '../../assets/Awhite.svg'
-import Loader  from '../../components/loader/loader.component'
+// // import loader  from '../../components/loader/loader.component'
 
 import './home.styles.scss'
 
@@ -35,7 +35,6 @@ const Home = () => {
             <br />
             <span className={`${letterClass} _13`}>I</span>
             <span className={`${letterClass} _14`}>'m</span>
-            {/* <img src={LogoA} alt="A" /> */}
             <img src={LogoAwhite} alt="A" />
             <AnimatedLetters
               letterClass={letterClass}
@@ -51,7 +50,7 @@ const Home = () => {
               idx={25}
             />
           </h1>
-          <h2> Full Stack Developer | Student </h2>
+          <h2> Full Stack Developer</h2>
           <Link to="/contact" className="flat-button">
             CONTACT ME
           </Link>
@@ -80,7 +79,7 @@ const Home = () => {
       {/* <div className="box">
         <div className="plane"></div>
       </div> */}
-      <Loader/>
+      {/* <Loader/> */}
     </>
   )
 }

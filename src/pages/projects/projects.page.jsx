@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 import AnimatedLetters from "../../components/animated-letters/animated-letter.component";
-import Loader from "../../components/loader/loader.component";
+// import loader from "../../components/loader/loader.component";
 import "./projects.styles.scss";
 
 import UGL from "../../assets/ugl.png";
@@ -73,7 +73,6 @@ const Projects = () => {
           </div>
         </div>
       </div>
-      <Loader />
     </>
   );
 };
