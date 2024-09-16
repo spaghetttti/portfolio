@@ -1,29 +1,25 @@
-import './sidebar.styles.scss';
-import './sidebar.menu.scss';
-import { Link, NavLink } from 'react-router-dom'
-import LogoA from '../../assets/Vector.png'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import "./sidebar.styles.scss";
+import "./sidebar.menu.scss";
+import { Link, NavLink } from "react-router-dom";
+import LogoA from "../../assets/Vector.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faEnvelope,
   faHome,
   faUser,
   faFolderOpen,
-} from '@fortawesome/free-solid-svg-icons'
-import {
-  faGithubSquare,
-  faInstagramSquare,
-  faTelegram,
-} from '@fortawesome/free-brands-svg-icons'
-import { useState } from 'react'
+} from "@fortawesome/free-solid-svg-icons";
+import { faGithubSquare, faTelegram } from "@fortawesome/free-brands-svg-icons";
+import { useState } from "react";
 
 const Sidebar = () => {
-  const [menu, setMenu] = useState(0)
+  const [menu, setMenu] = useState(0);
 
-  let menuListClass = ['unset']
-  let svgListClass = ['ham hamRotate ham8 ']
+  let menuListClass = ["unset"];
+  let svgListClass = ["ham hamRotate ham8 "];
   if (menu) {
-    menuListClass.push(' open')
-    svgListClass.push(' active')
+    menuListClass.push(" open");
+    svgListClass.push(" active");
   } else {
   }
 
@@ -77,19 +73,10 @@ const Sidebar = () => {
               <FontAwesomeIcon icon={faGithubSquare} color="#4d4d4e" />
             </a>
           </li>
-          <li>
-            <a
-              target="_blank"
-              rel="noreferrer"
-              href="https://www.instagram.com/spaghetttti_/"
-            >
-              <FontAwesomeIcon icon={faInstagramSquare} color="#4d4d4e" />
-            </a>
-          </li>
         </ul>
       </div>
       <nav className="nav-bar-mobile">
-      <Link className="logo-small" to="/">
+        <Link className="logo-small" to="/">
           <img src={LogoA} alt="logo" />
         </Link>
         <div className="menu-icon">
@@ -97,7 +84,7 @@ const Sidebar = () => {
             className={svgListClass}
             viewBox="0 0 100 100"
             width="80"
-            onClick={()=>setMenu(!menu)}
+            onClick={() => setMenu(!menu)}
           >
             <path
               className="line top"
@@ -110,16 +97,23 @@ const Sidebar = () => {
             />
           </svg>
         </div>
-        <div className={menuListClass.join(' ')}>
-          <Link onClick={()=>setMenu(!menu)} to='/'>Home</Link>
-          <Link onClick={()=>setMenu(!menu)} to='/about'>About</Link>
-          <Link onClick={()=>setMenu(!menu)} to='/projects'>Projects</Link>
-          <Link onClick={()=>setMenu(!menu)} to='/contact'>Contact me</Link>
-      </div>
+        <div className={menuListClass.join(" ")}>
+          <Link onClick={() => setMenu(!menu)} to="/">
+            Home
+          </Link>
+          <Link onClick={() => setMenu(!menu)} to="/about">
+            About
+          </Link>
+          <Link onClick={() => setMenu(!menu)} to="/projects">
+            Projects
+          </Link>
+          <Link onClick={() => setMenu(!menu)} to="/contact">
+            Contact me
+          </Link>
+        </div>
       </nav>
-      
     </>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;
