@@ -3,12 +3,12 @@ import "./cube.styles.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faNode,
-  faSass,
-  faGitAlt,
-  faHtml5,
-  faJsSquare,
+  faDocker,
   faReact,
+  faPython,
+  faJava,
 } from "@fortawesome/free-brands-svg-icons";
+import { SiSpringboot, SiTypescript } from "react-icons/si";
 
 const Cube1 = () => {
   const [show, setShow] = useState("front");
@@ -36,37 +36,37 @@ const Cube1 = () => {
               }`}
               style={{ background: "rgba(255, 255, 255, 0.4)" }}
             >
-              <FontAwesomeIcon icon={faReact} />
+              <FontAwesomeIcon icon={faReact} style={{ fontSize: '100px' }} />
             </div>
             <div
               className="cube__face cube__face--back"
               style={{ background: "rgba(255, 255, 255, 0.4)" }}
             >
-              <FontAwesomeIcon icon={faHtml5} />
+              <FontAwesomeIcon icon={faJava}  style={{ fontSize: '100px' }} />
             </div>
             <div
               className="cube__face cube__face--right"
               style={{ background: "rgba(255, 255, 255, 0.4)" }}
             >
-              <FontAwesomeIcon icon={faSass} />
+              <FontAwesomeIcon icon={faPython} style={{ fontSize: '100px' }} />
             </div>
             <div
               className="cube__face cube__face--left"
               style={{ background: "rgba(255, 255, 255, 0.4)" }}
             >
-              <FontAwesomeIcon icon={faJsSquare} />
+              <SiTypescript style={{ fontSize: '100px', color: '#3178C6' }} />
             </div>
             <div
               className="cube__face cube__face--top"
               style={{ background: "rgba(255, 255, 255, 0.4)" }}
             >
-              <FontAwesomeIcon icon={faGitAlt} />
+              <FontAwesomeIcon icon={faDocker} style={{ fontSize: '100px', color: '#2496ED' }} />
             </div>
             <div
               className="cube__face cube__face--bottom"
               style={{ background: "rgba(255, 255, 255, 0.4)" }}
             >
-              <FontAwesomeIcon icon={faNode} />
+              <FontAwesomeIcon icon={faNode} style={{ fontSize: '100px' }} />
             </div>
           </div>
         </div>

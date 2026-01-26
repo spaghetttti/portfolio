@@ -95,13 +95,9 @@ const Contact = () => {
           <p>
             Asilbek,
             <br />
-            Tashkent, Uzbekistan
+            Paris, France
             <br />
             Email: <span>asil9802mum@gmail.com</span>
-            <br />
-            Telegram: <span>@spaghetttti</span>
-            <br />
-            Postal Code: <span>100043</span>
             <br />
             <div className="list">
               <a
