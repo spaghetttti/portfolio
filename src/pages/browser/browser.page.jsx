@@ -2,15 +2,125 @@ import { useState } from "react";
 import "./browser.styles.scss";
 import LegacyApp from "../legacy-portfolio/LegacyApp";
 
-// Custom DuckDuckGo-style search page component
+// Custom DuckDuckGo-style search page component with actual results
 const SearchPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [results, setResults] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [searched, setSearched] = useState(false);
 
-  const handleSearch = (e) => {
+  const handleSearch = async (e) => {
     e.preventDefault();
-    if (searchQuery.trim()) {
-      window.open(`https://duckduckgo.com/?q=${encodeURIComponent(searchQuery)}`, "_blank");
+    if (!searchQuery.trim()) return;
+
+    setLoading(true);
+    setSearched(true);
+
+    try {
+      // DuckDuckGo Instant Answer API
+      const response = await fetch(
+        `https://api.duckduckgo.com/?q=${encodeURIComponent(searchQuery)}&format=json&no_html=1&skip_disambig=1`
+      );
+      const data = await response.json();
+      setResults(data);
+    } catch (error) {
+      console.error("Search failed:", error);
+      setResults({ error: true });
     }
+
+    setLoading(false);
+  };
+
+  const renderResults = () => {
+    if (!searched) return null;
+    
+    if (loading) {
+      return <div className="search-loading">Searching...</div>;
+    }
+
+    if (results?.error) {
+      return <div className="search-error">Search failed. Try again.</div>;
+    }
+
+    // Check if we have any results
+    const hasAbstract = results?.Abstract;
+    const hasRelated = results?.RelatedTopics?.length > 0;
+    const hasResults = results?.Results?.length > 0;
+
+    if (!hasAbstract && !hasRelated && !hasResults) {
+      return (
+        <div className="search-results">
+          <div className="no-results">
+            <p>No instant answers found for "<strong>{searchQuery}</strong>"</p>
+            <button 
+              className="full-search-btn"
+              onClick={() => window.open(`https://duckduckgo.com/?q=${encodeURIComponent(searchQuery)}`, "_blank")}
+            >
+              Search on DuckDuckGo.com →
+            </button>
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <div className="search-results">
+        {/* Main Abstract/Answer */}
+        {hasAbstract && (
+          <div className="result-card main-result">
+            {results.Image && (
+              <img src={results.Image} alt="" className="result-image" />
+            )}
+            <div className="result-content">
+              <h2>{results.Heading}</h2>
+              <p>{results.Abstract}</p>
+              {results.AbstractURL && (
+                <a href={results.AbstractURL} target="_blank" rel="noopener noreferrer">
+                  {results.AbstractSource} →
+                </a>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* Direct Results */}
+        {hasResults && results.Results.map((result, idx) => (
+          <div key={idx} className="result-card">
+            <a href={result.FirstURL} target="_blank" rel="noopener noreferrer">
+              <h3>{result.Text}</h3>
+            </a>
+          </div>
+        ))}
+
+        {/* Related Topics */}
+        {hasRelated && (
+          <div className="related-topics">
+            <h3>Related Topics</h3>
+            {results.RelatedTopics.slice(0, 8).map((topic, idx) => (
+              topic.FirstURL ? (
+                <div key={idx} className="result-card small">
+                  {topic.Icon?.URL && (
+                    <img src={topic.Icon.URL} alt="" className="topic-icon" />
+                  )}
+                  <div>
+                    <a href={topic.FirstURL} target="_blank" rel="noopener noreferrer">
+                      {topic.Text?.slice(0, 150)}{topic.Text?.length > 150 ? '...' : ''}
+                    </a>
+                  </div>
+                </div>
+              ) : null
+            ))}
+          </div>
+        )}
+
+        <button 
+          className="full-search-btn"
+          onClick={() => window.open(`https://duckduckgo.com/?q=${encodeURIComponent(searchQuery)}`, "_blank")}
+        >
+          See all results on DuckDuckGo.com →
+        </button>
+      </div>
+    );
   };
 
   return (
@@ -33,11 +143,12 @@ const SearchPage = () => {
             Search
           </button>
         </form>
-        <p className="search-tagline">
-          The search engine that doesn't track you.
-          <br />
-          <small>(Results will open in a new tab)</small>
-        </p>
+        {!searched && (
+          <p className="search-tagline">
+            The search engine that doesn't track you.
+          </p>
+        )}
+        {renderResults()}
       </div>
     </div>
   );
