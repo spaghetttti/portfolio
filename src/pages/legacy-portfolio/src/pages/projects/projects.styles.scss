@@ -1,0 +1,113 @@
+.projects-page {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  .text-zone {
+    color: white;
+
+    p {
+      font-weight: 100;
+    }
+    .intext-link {
+      font-style: italic;
+      color: white;
+    }
+  }
+
+  .projects-list {
+    display: flex;
+    word-break: break-all;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    .project {
+      width: 350px;
+      box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+        rgba(0, 0, 0, 0.23) 0px 6px 6px;
+      background-color: #eeeeeecc;
+      border-radius: 3px;
+      padding: 10px;
+      font-family: "Smooch Sans", sans-serif;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      img {
+        width: 330px;
+        display: block;
+      }
+
+      .img-overlay {
+        position: absolute;
+        width: 330px;
+        height: 155px;
+        background-color: rgba(0, 0, 0, 0.381);
+        color: white;
+        -webkit-transition: all 0.4s ease-in-out 0s;
+        -moz-transition: all 0.4s ease-in-out 0s;
+        transition: all 0.4s ease-in-out 0s;
+        opacity: 0;
+      }
+
+      .fade-in-details {
+        position: absolute;
+        text-align: center;
+        padding-left: 1em;
+        padding-right: 1em;
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        -webkit-transition: all 0.3s ease-in-out 0s;
+        -moz-transition: all 0.3s ease-in-out 0s;
+        transition: all 0.3s ease-in-out 0s;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        font-size: 32px;
+        opacity: 0;
+      }
+
+      .img-overlay:hover {
+        opacity: 1;
+        .fade-in-details {
+          opacity: 1;
+        }
+      }
+
+      h6.title {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        font-size: 32px;
+      }
+      p.desc {
+        font-size: 24px;
+        word-break: keep-all;
+      }
+    }
+  }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+  .projects-page {
+    h1 {
+      margin-bottom: 0;
+    }
+    .projects-list {
+      .project {
+        width: 280px;
+        img {
+          width: 260px;
+        }
+
+        .img-overlay {
+          position: absolute;
+          width: 260px;
+          height: 125px;
+        }
+      }
+      margin-bottom: 20px;
+    }
+  }
+}

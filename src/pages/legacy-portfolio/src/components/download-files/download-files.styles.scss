@@ -1,0 +1,21 @@
+.buttons-group {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    button.flat-button {
+        background-color: #333333;
+        text-shadow: 2px 3px 5px rgb(0 0 0 / 33%);
+        &:hover {
+            cursor: pointer;
+            background-color: #a43838;
+        }
+    }
+
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+    .buttons-group {
+        justify-content: center;
+    }
+}

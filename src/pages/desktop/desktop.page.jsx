@@ -4,7 +4,7 @@ import Terminal from "../terminal/components/Terminal";
 import { ThemeProvider } from "styled-components";
 import { useTheme } from "../terminal/hooks/useTheme";
 import GlobalStyle from "../terminal/components/styles/GlobalStyle";
-import Home from "../home/home.page";
+import Browser from "../browser/browser.page";
 import NotepadAbout from "../about/notepad.page";
 import Explorer from "../projects/explorer.page";
 import ContactForm from "../contact/contact-form.page";
@@ -36,7 +36,7 @@ const Desktop = () => {
 
   const windowConfigs = {
     terminal: { title: "Command Prompt", icon: "/icons/terminal.png", defaultWidth: 800, defaultHeight: 500 },
-    legacy: { title: "Legacy Resume", icon: "/icons/document.png", defaultWidth: 900, defaultHeight: 600 },
+    legacy: { title: "Internet Explorer - Legacy Portfolio", icon: "/icons/browser.png", defaultWidth: 1000, defaultHeight: 650 },
     about: { title: "About Me - Notepad", icon: "/icons/notepad.png", defaultWidth: 800, defaultHeight: 550 },
     projects: { title: "My Projects - Explorer", icon: "/icons/folder.png", defaultWidth: 850, defaultHeight: 550 },
     contact: { title: "Contact", icon: "/icons/contact.png", defaultWidth: 750, defaultHeight: 500 },
@@ -147,7 +147,7 @@ const Desktop = () => {
       case "terminal":
         return <TerminalWrapper />;
       case "legacy":
-        return <Home />;
+        return <Browser />;
       case "about":
         return <NotepadAbout />;
       case "projects":
@@ -178,15 +178,15 @@ const Desktop = () => {
           className="desktop-icon"
           onClick={() => openWindow("legacy")}
         >
-          <img src="/icons/document.png" alt="Legacy Resume" className="icon-image" />
-          <span className="icon-label">Legacy Resume</span>
+          <img src="/icons/browser.png" alt="Internet Explorer" className="icon-image" />
+          <span className="icon-label">Internet Explorer</span>
         </div>
 
         <div
           className="desktop-icon"
           onClick={() => openWindow("about")}
         >
-          <img src="/icons/user.png" alt="About Me" className="icon-image" />
+          <img src="/icons/notepad.png" alt="About Me" className="icon-image" />
           <span className="icon-label">About Me</span>
         </div>
 
