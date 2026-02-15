@@ -4,7 +4,7 @@ A nostalgic Windows 98-style portfolio website built with React. Experience my r
 
 ![Windows 98 Portfolio](https://img.shields.io/badge/Windows-98-008080?style=for-the-badge&logo=windows95&logoColor=white)
 
-## ✨ Features
+## Features
 
 - **Boot Screen** - DOS-style boot sequence with ASCII art
 - **Draggable Windows** - Fully functional window management (minimize, maximize, close)
@@ -15,7 +15,7 @@ A nostalgic Windows 98-style portfolio website built with React. Experience my r
 - **Contact Form** - Windows form with Clippy assistant
 - **Start Menu** - Classic Windows 98 start menu
 
-## 🚀 Quick Start
+## Quick Start
 
 ```bash
 # Install dependencies
@@ -31,7 +31,7 @@ npm run build
 npm run lint
 ```
 
-## 🛠️ Built With
+## Built With
 
 - React.js
 - SCSS
@@ -46,7 +46,7 @@ Big thanks to these amazing projects for inspiration and resources that helped m
 - **[WIN98-template](https://github.com/pollygon-dev/WIN98-template)** by [@pollygon-dev](https://github.com/pollygon-dev) - For the incredible Windows 98 UI inspiration and design patterns
 - **[terminal-portfolio](https://github.com/satnaing/terminal-portfolio)** by [@satnaing](https://github.com/satnaing) - For the awesome terminal component and command structure inspiration
 
-## 📝 License
+## License
 
 This project is open source and available under the [MIT License](LICENSE).
 
