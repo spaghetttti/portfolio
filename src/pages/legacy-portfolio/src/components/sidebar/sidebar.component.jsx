@@ -33,34 +33,34 @@ const Sidebar = ({ onNavigate, currentPage }) => {
   return (
     <>
       <div className="nav-bar">
-        <a className="logo-small" onClick={() => handleNav("home")} style={{ cursor: "pointer" }}>
+        <button className="logo-small" onClick={() => handleNav("home")} style={{ cursor: "pointer", background: "none", border: "none" }}>
           <img src={LogoA} alt="logo" />
-        </a>
+        </button>
         <nav>
-          <a className={isActive("home")} onClick={() => handleNav("home")} style={{ cursor: "pointer" }}>
+          <button className={isActive("home")} onClick={() => handleNav("home")} style={{ cursor: "pointer", background: "none", border: "none" }}>
             <FontAwesomeIcon icon={faHome} />
-          </a>
-          <a
+          </button>
+          <button
             className={`about-link ${isActive("about")}`}
             onClick={() => handleNav("about")}
-            style={{ cursor: "pointer" }}
+            style={{ cursor: "pointer", background: "none", border: "none" }}
           >
             <FontAwesomeIcon icon={faUser} />
-          </a>
-          <a
+          </button>
+          <button
             className={`contact-link ${isActive("projects")}`}
             onClick={() => handleNav("projects")}
-            style={{ cursor: "pointer" }}
+            style={{ cursor: "pointer", background: "none", border: "none" }}
           >
             <FontAwesomeIcon icon={faFolderOpen} />
-          </a>
-          <a
+          </button>
+          <button
             className={`contact-link ${isActive("contact")}`}
             onClick={() => handleNav("contact")}
-            style={{ cursor: "pointer" }}
+            style={{ cursor: "pointer", background: "none", border: "none" }}
           >
             <FontAwesomeIcon icon={faEnvelope} />
-          </a>
+          </button>
         </nav>
         <ul>
           <li>
@@ -80,9 +80,9 @@ const Sidebar = ({ onNavigate, currentPage }) => {
         </ul>
       </div>
       <nav className="nav-bar-mobile">
-        <a className="logo-small" onClick={() => handleNav("home")} style={{ cursor: "pointer" }}>
+        <button className="logo-small" onClick={() => handleNav("home")} style={{ cursor: "pointer", background: "none", border: "none" }}>
           <img src={LogoA} alt="logo" />
-        </a>
+        </button>
         <div className="menu-icon">
           <svg
             className={svgListClass}
@@ -102,18 +102,18 @@ const Sidebar = ({ onNavigate, currentPage }) => {
           </svg>
         </div>
         <div className={menuListClass.join(" ")}>
-          <a onClick={() => handleNav("home")} style={{ cursor: "pointer" }}>
+          <button onClick={() => handleNav("home")} style={{ cursor: "pointer", background: "none", border: "none", color: "inherit", font: "inherit" }}>
             Home
-          </a>
-          <a onClick={() => handleNav("about")} style={{ cursor: "pointer" }}>
+          </button>
+          <button onClick={() => handleNav("about")} style={{ cursor: "pointer", background: "none", border: "none", color: "inherit", font: "inherit" }}>
             About
-          </a>
-          <a onClick={() => handleNav("projects")} style={{ cursor: "pointer" }}>
+          </button>
+          <button onClick={() => handleNav("projects")} style={{ cursor: "pointer", background: "none", border: "none", color: "inherit", font: "inherit" }}>
             Projects
-          </a>
-          <a onClick={() => handleNav("contact")} style={{ cursor: "pointer" }}>
+          </button>
+          <button onClick={() => handleNav("contact")} style={{ cursor: "pointer", background: "none", border: "none", color: "inherit", font: "inherit" }}>
             Contact me
-          </a>
+          </button>
         </div>
       </nav>
     </>

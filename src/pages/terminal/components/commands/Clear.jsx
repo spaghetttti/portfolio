@@ -6,6 +6,7 @@ const Clear = () => {
   const { arg, clearHistory } = useContext(termContext);
   useEffect(() => {
     if (arg.length < 1) clearHistory?.();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return arg.length > 0 ? <UsageDiv>Usage: clear</UsageDiv> : <></>;
 };

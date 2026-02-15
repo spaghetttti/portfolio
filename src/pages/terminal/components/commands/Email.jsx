@@ -9,7 +9,7 @@ const Email = () => {
   const currentCommand = _.split(history[0], " ");
 
   if (rerender && currentCommand[0] === "email" && currentCommand.length <= 1) {
-    window.open("mailto:" + "asil9802mum@gmail.com", "_self");
+    window.open("mailto:asil9802mum@gmail.com", "_self");
   }
 
   return (

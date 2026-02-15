@@ -25,6 +25,7 @@ const Themes = () => {
     if (checkThemeSwitch(rerender, currentCommand, myThemes)) {
       themeSwitcher?.(theme[currentCommand[2]]);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [arg, rerender, currentCommand]);
 
   const checkArg = () =>
