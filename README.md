@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# SPAGHETTTTI OS - Windows 98 Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A nostalgic Windows 98-style portfolio website built with React. Experience my resume and projects through a retro desktop interface complete with draggable windows, a working terminal, and classic Win98 aesthetics.
 
-## Available Scripts
+![Windows 98 Portfolio](https://img.shields.io/badge/Windows-98-008080?style=for-the-badge&logo=windows95&logoColor=white)
 
-In the project directory, you can run:
+## ✨ Features
 
-### `npm start`
+- **Boot Screen** - DOS-style boot sequence with ASCII art
+- **Draggable Windows** - Fully functional window management (minimize, maximize, close)
+- **Command Prompt** - Interactive terminal with custom commands
+- **Internet Explorer** - Browse my legacy portfolio and search with DuckDuckGo
+- **Notepad** - About Me section in classic notepad style
+- **Explorer** - Browse my GitHub projects
+- **Contact Form** - Windows form with Clippy assistant
+- **Start Menu** - Classic Windows 98 start menu
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🚀 Quick Start
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+# Install dependencies
+npm install
 
-### `npm test`
+# Run development server (runs on port 6969)
+npm start
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Build for production
+npm run build
 
-### `npm run build`
+# Run linter
+npm run lint
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🛠️ Built With
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- React.js
+- SCSS
+- styled-components
+- Font Awesome
+- Web3Forms (contact form)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🙏 Acknowledgments
 
-### `npm run eject`
+Big thanks to these amazing projects for inspiration and resources that helped me build and customize my own version of this Win98 desktop-style resume webpage:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **[WIN98-template](https://github.com/pollygon-dev/WIN98-template)** by [@pollygon-dev](https://github.com/pollygon-dev) - For the incredible Windows 98 UI inspiration and design patterns
+- **[terminal-portfolio](https://github.com/satnaing/terminal-portfolio)** by [@satnaing](https://github.com/satnaing) - For the awesome terminal component and command structure inspiration
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 📝 License
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+This project is open source and available under the [MIT License](LICENSE).
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Made with 💾 and nostalgia by [Asilbek Muminov](https://github.com/spaghetttti)
