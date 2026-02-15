@@ -8,6 +8,7 @@ import Browser from "../browser/browser.page";
 import NotepadAbout from "../about/notepad.page";
 import Explorer from "../projects/explorer.page";
 import ContactForm from "../contact/contact-form.page";
+import BootScreen, { shouldSkipBoot } from "../boot-screen/boot-screen.page";
 
 // Wrapper for Terminal with theme
 const TerminalWrapper = () => {
@@ -23,6 +24,7 @@ const TerminalWrapper = () => {
 };
 
 const Desktop = () => {
+  const [isBooting, setIsBooting] = useState(() => !shouldSkipBoot());
   const [currentTime, setCurrentTime] = useState(new Date());
   const [startMenuOpen, setStartMenuOpen] = useState(false);
   const [openWindows, setOpenWindows] = useState([]);
@@ -158,6 +160,15 @@ const Desktop = () => {
         return null;
     }
   };
+
+  const handleBootComplete = useCallback(() => {
+    setIsBooting(false);
+  }, []);
+
+  // Show boot screen first
+  if (isBooting) {
+    return <BootScreen onComplete={handleBootComplete} />;
+  }
 
   return (
     <div 
