@@ -1,12 +1,46 @@
-import { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect, useRef, useCallback } from "react";
 import "./desktop.styles.scss";
+import Terminal from "../terminal/components/Terminal";
+import { ThemeProvider } from "styled-components";
+import { useTheme } from "../terminal/hooks/useTheme";
+import GlobalStyle from "../terminal/components/styles/GlobalStyle";
+import Home from "../home/home.page";
+import About from "../about/about.page";
+import ProjectsPage from "../projects/projects.page";
+import Contact from "../contact/contact.page";
+
+// Wrapper for Terminal with theme
+const TerminalWrapper = () => {
+  const { theme } = useTheme();
+  return (
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <div style={{ height: "100%", overflow: "auto" }}>
+        <Terminal />
+      </div>
+    </ThemeProvider>
+  );
+};
 
 const Desktop = () => {
-  const navigate = useNavigate();
   const [currentTime, setCurrentTime] = useState(new Date());
   const [startMenuOpen, setStartMenuOpen] = useState(false);
+  const [openWindows, setOpenWindows] = useState([]);
+  const [activeWindow, setActiveWindow] = useState(null);
+  const [windowPositions, setWindowPositions] = useState({});
+  const [windowSizes, setWindowSizes] = useState({});
+  const [maximizedWindows, setMaximizedWindows] = useState({});
+  const [minimizedWindows, setMinimizedWindows] = useState({});
   const startMenuRef = useRef(null);
+  const dragRef = useRef({ isDragging: false, windowId: null, startX: 0, startY: 0 });
+
+  const windowConfigs = {
+    terminal: { title: "Terminal", icon: ">_", defaultWidth: 800, defaultHeight: 500 },
+    legacy: { title: "Legacy Resume", icon: "📄", defaultWidth: 900, defaultHeight: 600 },
+    about: { title: "About Me", icon: "👤", defaultWidth: 800, defaultHeight: 550 },
+    projects: { title: "Projects", icon: "📁", defaultWidth: 850, defaultHeight: 550 },
+    contact: { title: "Contact", icon: "✉️", defaultWidth: 750, defaultHeight: 500 },
+  };
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -33,17 +67,95 @@ const Desktop = () => {
     });
   };
 
-  const handleIconDoubleClick = (app) => {
-    if (app === "terminal") {
-      navigate("/terminal");
-    } else if (app === "legacy") {
-      navigate("/legacy");
-    } else if (app === "about") {
-      navigate("/about");
-    } else if (app === "projects") {
-      navigate("/projects");
-    } else if (app === "contact") {
-      navigate("/contact");
+  const openWindow = (app) => {
+    if (!openWindows.includes(app)) {
+      setOpenWindows([...openWindows, app]);
+      const config = windowConfigs[app];
+      const offset = openWindows.length * 30;
+      setWindowPositions((prev) => ({
+        ...prev,
+        [app]: { x: 100 + offset, y: 50 + offset },
+      }));
+      setWindowSizes((prev) => ({
+        ...prev,
+        [app]: { width: config.defaultWidth, height: config.defaultHeight },
+      }));
+    }
+    setMinimizedWindows((prev) => ({ ...prev, [app]: false }));
+    setActiveWindow(app);
+  };
+
+  const closeWindow = (app) => {
+    setOpenWindows(openWindows.filter((w) => w !== app));
+    if (activeWindow === app) {
+      const remaining = openWindows.filter((w) => w !== app);
+      setActiveWindow(remaining.length > 0 ? remaining[remaining.length - 1] : null);
+    }
+  };
+
+  const minimizeWindow = (app) => {
+    setMinimizedWindows((prev) => ({ ...prev, [app]: true }));
+    if (activeWindow === app) {
+      const visible = openWindows.filter((w) => w !== app && !minimizedWindows[w]);
+      setActiveWindow(visible.length > 0 ? visible[visible.length - 1] : null);
+    }
+  };
+
+  const toggleMaximize = (app) => {
+    setMaximizedWindows((prev) => ({ ...prev, [app]: !prev[app] }));
+  };
+
+  const handleMouseDown = useCallback((e, windowId) => {
+    if (e.target.closest(".window-controls")) return;
+    dragRef.current = {
+      isDragging: true,
+      windowId,
+      startX: e.clientX - (windowPositions[windowId]?.x || 0),
+      startY: e.clientY - (windowPositions[windowId]?.y || 0),
+    };
+    setActiveWindow(windowId);
+  }, [windowPositions]);
+
+  const handleMouseMove = useCallback((e) => {
+    if (!dragRef.current.isDragging) return;
+    const { windowId, startX, startY } = dragRef.current;
+    if (maximizedWindows[windowId]) return;
+    setWindowPositions((prev) => ({
+      ...prev,
+      [windowId]: {
+        x: Math.max(0, e.clientX - startX),
+        y: Math.max(0, e.clientY - startY),
+      },
+    }));
+  }, [maximizedWindows]);
+
+  const handleMouseUp = useCallback(() => {
+    dragRef.current.isDragging = false;
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseup", handleMouseUp);
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseup", handleMouseUp);
+    };
+  }, [handleMouseMove, handleMouseUp]);
+
+  const renderWindowContent = (app) => {
+    switch (app) {
+      case "terminal":
+        return <TerminalWrapper />;
+      case "legacy":
+        return <Home />;
+      case "about":
+        return <About />;
+      case "projects":
+        return <ProjectsPage />;
+      case "contact":
+        return <Contact />;
+      default:
+        return null;
     }
   };
 
@@ -53,7 +165,7 @@ const Desktop = () => {
       <div className="desktop-icons">
         <div
           className="desktop-icon"
-          onDoubleClick={() => handleIconDoubleClick("terminal")}
+          onClick={() => openWindow("terminal")}
         >
           <div className="icon-image terminal-icon">
             <span>&gt;_</span>
@@ -63,7 +175,7 @@ const Desktop = () => {
 
         <div
           className="desktop-icon"
-          onDoubleClick={() => handleIconDoubleClick("legacy")}
+          onClick={() => openWindow("legacy")}
         >
           <div className="icon-image legacy-icon">
             <span>📄</span>
@@ -73,7 +185,7 @@ const Desktop = () => {
 
         <div
           className="desktop-icon"
-          onDoubleClick={() => handleIconDoubleClick("about")}
+          onClick={() => openWindow("about")}
         >
           <div className="icon-image about-icon">
             <span>👤</span>
@@ -83,7 +195,7 @@ const Desktop = () => {
 
         <div
           className="desktop-icon"
-          onDoubleClick={() => handleIconDoubleClick("projects")}
+          onClick={() => openWindow("projects")}
         >
           <div className="icon-image folder-icon">
             <span>📁</span>
@@ -93,7 +205,7 @@ const Desktop = () => {
 
         <div
           className="desktop-icon"
-          onDoubleClick={() => handleIconDoubleClick("contact")}
+          onClick={() => openWindow("contact")}
         >
           <div className="icon-image contact-icon">
             <span>✉️</span>
@@ -101,6 +213,57 @@ const Desktop = () => {
           <span className="icon-label">Contact</span>
         </div>
       </div>
+
+      {/* Windows */}
+      {openWindows.map((app) => {
+        const config = windowConfigs[app];
+        const pos = windowPositions[app] || { x: 100, y: 50 };
+        const size = windowSizes[app] || { width: config.defaultWidth, height: config.defaultHeight };
+        const isMaximized = maximizedWindows[app];
+        const isMinimized = minimizedWindows[app];
+        const isActive = activeWindow === app;
+
+        if (isMinimized) return null;
+
+        return (
+          <div
+            key={app}
+            className={`win98-window ${isActive ? "active" : ""} ${isMaximized ? "maximized" : ""}`}
+            style={{
+              left: isMaximized ? 0 : pos.x,
+              top: isMaximized ? 0 : pos.y,
+              width: isMaximized ? "100%" : size.width,
+              height: isMaximized ? "calc(100% - 32px)" : size.height,
+              zIndex: isActive ? 1000 : 100,
+            }}
+            onClick={() => setActiveWindow(app)}
+          >
+            <div
+              className={`window-titlebar ${isActive ? "active" : ""}`}
+              onMouseDown={(e) => handleMouseDown(e, app)}
+            >
+              <div className="window-title">
+                <span className="window-icon">{config.icon}</span>
+                <span>{config.title}</span>
+              </div>
+              <div className="window-controls">
+                <button className="window-btn minimize" onClick={(e) => { e.stopPropagation(); minimizeWindow(app); }}>
+                  _
+                </button>
+                <button className="window-btn maximize" onClick={(e) => { e.stopPropagation(); toggleMaximize(app); }}>
+                  {isMaximized ? "❐" : "□"}
+                </button>
+                <button className="window-btn close" onClick={(e) => { e.stopPropagation(); closeWindow(app); }}>
+                  ×
+                </button>
+              </div>
+            </div>
+            <div className="window-content">
+              {renderWindowContent(app)}
+            </div>
+          </div>
+        );
+      })}
 
       {/* Taskbar */}
       <div className="taskbar">
@@ -123,7 +286,7 @@ const Desktop = () => {
                 <div
                   className="start-menu-item"
                   onClick={() => {
-                    handleIconDoubleClick("terminal");
+                    openWindow("terminal");
                     setStartMenuOpen(false);
                   }}
                 >
@@ -133,7 +296,7 @@ const Desktop = () => {
                 <div
                   className="start-menu-item"
                   onClick={() => {
-                    handleIconDoubleClick("legacy");
+                    openWindow("legacy");
                     setStartMenuOpen(false);
                   }}
                 >
@@ -144,7 +307,7 @@ const Desktop = () => {
                 <div
                   className="start-menu-item"
                   onClick={() => {
-                    handleIconDoubleClick("about");
+                    openWindow("about");
                     setStartMenuOpen(false);
                   }}
                 >
@@ -154,7 +317,7 @@ const Desktop = () => {
                 <div
                   className="start-menu-item"
                   onClick={() => {
-                    handleIconDoubleClick("projects");
+                    openWindow("projects");
                     setStartMenuOpen(false);
                   }}
                 >
@@ -164,7 +327,7 @@ const Desktop = () => {
                 <div
                   className="start-menu-item"
                   onClick={() => {
-                    handleIconDoubleClick("contact");
+                    openWindow("contact");
                     setStartMenuOpen(false);
                   }}
                 >
@@ -176,7 +339,31 @@ const Desktop = () => {
           )}
         </div>
 
-        <div className="taskbar-programs"></div>
+        <div className="taskbar-programs">
+          {openWindows.map((app) => {
+            const config = windowConfigs[app];
+            const isActive = activeWindow === app && !minimizedWindows[app];
+            return (
+              <button
+                key={app}
+                className={`taskbar-program ${isActive ? "active" : ""} ${minimizedWindows[app] ? "minimized" : ""}`}
+                onClick={() => {
+                  if (minimizedWindows[app]) {
+                    setMinimizedWindows((prev) => ({ ...prev, [app]: false }));
+                    setActiveWindow(app);
+                  } else if (activeWindow === app) {
+                    minimizeWindow(app);
+                  } else {
+                    setActiveWindow(app);
+                  }
+                }}
+              >
+                <span className="program-icon">{config.icon}</span>
+                <span className="program-title">{config.title}</span>
+              </button>
+            );
+          })}
+        </div>
 
         <div className="system-tray">
           <span className="time">{formatTime(currentTime)}</span>

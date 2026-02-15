@@ -59,7 +59,7 @@ const Terminal = () => {
       setRerender(false);
       setInputVal(e.target.value);
     },
-    [inputVal]
+    []
   );
 
   const handleSubmit = (e) => {
