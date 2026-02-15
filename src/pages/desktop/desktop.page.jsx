@@ -173,7 +173,7 @@ const Desktop = () => {
   return (
     <div 
       className="win98-desktop"
-      style={{ backgroundImage: 'url("/background.png")', backgroundSize: 'cover', backgroundPosition: 'center' }}
+      style={{ backgroundImage: 'url("/background.jpg")', backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
       {/* Desktop Icons */}
       <div className="desktop-icons">
