@@ -133,6 +133,13 @@
     border: 2px inset #808080;
     margin: 4px;
     overflow: hidden;
+
+    .legacy-app-wrapper {
+      transform: scale(0.75);
+      transform-origin: top left;
+      width: 133.33%;
+      height: 133.33%;
+    }
   }
 
   .browser-statusbar {

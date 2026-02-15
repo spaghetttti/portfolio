@@ -31,22 +31,30 @@
 
   .overall-logo {
     //positioning of both logo here for convenience
-
-    #logo1,
-    .logo-container {
-      width: 390px;
-      height: 689px;
-    }
-  }
-
-  #logo1 {
-    z-index: 0;
     position: absolute;
     top: 0;
     right: 15%;
     bottom: 0;
     left: auto;
     margin: auto;
+    width: 390px;
+    height: 689px;
+
+    #logo1,
+    .logo-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+    }
+  }
+
+  #logo1 {
+    z-index: 0;
   }
 
   #logo1 path:nth-child(1) {

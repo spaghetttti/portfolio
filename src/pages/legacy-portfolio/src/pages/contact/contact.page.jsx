@@ -1,11 +1,8 @@
-import { useEffect, useState } from "react";
-import { useRef } from "react";
-import emailjs from "@emailjs/browser";
+import { useEffect, useState, useRef } from "react";
 import AnimatedLetters from "../../components/animated-letters/animated-letter.component";
 import "./contact.styles.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithubSquare, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-// import loader from "../../components/loader/loader.component";
 
 const Contact = () => {
   const [letterClass, setLetterClass] = useState("text-animate");
@@ -18,25 +15,14 @@ const Contact = () => {
     return () => clearTimeout(AnimateHover);
   }, []);
 
-  const sendEmail = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-
-    emailjs
-      .sendForm(
-        "service_f7gpwig",
-        "template_1pdwbmh",
-        form.current,
-        "cTFusmlbbi6oj4dfP"
-      )
-      .then(
-        () => {
-          alert("Message successfully sent!");
-          window.location.reload(false);
-        },
-        () => {
-          alert("Failed to send the message, please try again");
-        }
-      );
+    const formData = new FormData(form.current);
+    const subject = encodeURIComponent(formData.get("subject") || "Hello from your portfolio!");
+    const body = encodeURIComponent(
+      `Name: ${formData.get("name")}\nEmail: ${formData.get("email")}\n\n${formData.get("message")}`
+    );
+    window.open(`mailto:asil9802mum@gmail.com?subject=${subject}&body=${body}`, "_self");
   };
 
   return (
@@ -56,7 +42,7 @@ const Contact = () => {
             hesitate to contact me using below form either.
           </p>
           <div className="contact-form">
-            <form ref={form} onSubmit={sendEmail}>
+            <form ref={form} onSubmit={handleSubmit}>
               <ul>
                 <li className="half">
                   <input placeholder="Name" type="text" name="name" required />
@@ -93,15 +79,11 @@ const Contact = () => {
         </div>
         <div className="info-map">
           <p>
-            Asilbek,
+            Asilbek Muminov,
             <br />
-            Tashkent, Uzbekistan
+            Paris, France
             <br />
             Email: <span>asil9802mum@gmail.com</span>
-            <br />
-            Telegram: <span>@spaghetttti</span>
-            <br />
-            Postal Code: <span>100043</span>
             <br />
             <div className="list">
               <a
