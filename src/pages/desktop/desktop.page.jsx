@@ -35,11 +35,11 @@ const Desktop = () => {
   const dragRef = useRef({ isDragging: false, windowId: null, startX: 0, startY: 0 });
 
   const windowConfigs = {
-    terminal: { title: "Terminal", icon: ">_", defaultWidth: 800, defaultHeight: 500 },
-    legacy: { title: "Legacy Resume", icon: "📄", defaultWidth: 900, defaultHeight: 600 },
-    about: { title: "About Me", icon: "👤", defaultWidth: 800, defaultHeight: 550 },
-    projects: { title: "Projects", icon: "📁", defaultWidth: 850, defaultHeight: 550 },
-    contact: { title: "Contact", icon: "✉️", defaultWidth: 750, defaultHeight: 500 },
+    terminal: { title: "Terminal", icon: "/icons/terminal.png", defaultWidth: 800, defaultHeight: 500 },
+    legacy: { title: "Legacy Resume", icon: "/icons/document.png", defaultWidth: 900, defaultHeight: 600 },
+    about: { title: "About Me", icon: "/icons/user.png", defaultWidth: 800, defaultHeight: 550 },
+    projects: { title: "Projects", icon: "/icons/folder.png", defaultWidth: 850, defaultHeight: 550 },
+    contact: { title: "Contact", icon: "/icons/contact.png", defaultWidth: 750, defaultHeight: 500 },
   };
 
   useEffect(() => {
@@ -160,16 +160,17 @@ const Desktop = () => {
   };
 
   return (
-    <div className="win98-desktop">
+    <div 
+      className="win98-desktop"
+      style={{ backgroundImage: 'url("/background.png")', backgroundSize: 'cover', backgroundPosition: 'center' }}
+    >
       {/* Desktop Icons */}
       <div className="desktop-icons">
         <div
           className="desktop-icon"
           onClick={() => openWindow("terminal")}
         >
-          <div className="icon-image terminal-icon">
-            <span>&gt;_</span>
-          </div>
+          <img src="/icons/terminal.png" alt="Terminal" className="icon-image" />
           <span className="icon-label">Terminal</span>
         </div>
 
@@ -177,9 +178,7 @@ const Desktop = () => {
           className="desktop-icon"
           onClick={() => openWindow("legacy")}
         >
-          <div className="icon-image legacy-icon">
-            <span>📄</span>
-          </div>
+          <img src="/icons/document.png" alt="Legacy Resume" className="icon-image" />
           <span className="icon-label">Legacy Resume</span>
         </div>
 
@@ -187,9 +186,7 @@ const Desktop = () => {
           className="desktop-icon"
           onClick={() => openWindow("about")}
         >
-          <div className="icon-image about-icon">
-            <span>👤</span>
-          </div>
+          <img src="/icons/user.png" alt="About Me" className="icon-image" />
           <span className="icon-label">About Me</span>
         </div>
 
@@ -197,9 +194,7 @@ const Desktop = () => {
           className="desktop-icon"
           onClick={() => openWindow("projects")}
         >
-          <div className="icon-image folder-icon">
-            <span>📁</span>
-          </div>
+          <img src="/icons/folder.png" alt="Projects" className="icon-image" />
           <span className="icon-label">Projects</span>
         </div>
 
@@ -207,9 +202,7 @@ const Desktop = () => {
           className="desktop-icon"
           onClick={() => openWindow("contact")}
         >
-          <div className="icon-image contact-icon">
-            <span>✉️</span>
-          </div>
+          <img src="/icons/contact.png" alt="Contact" className="icon-image" />
           <span className="icon-label">Contact</span>
         </div>
       </div>
@@ -243,7 +236,7 @@ const Desktop = () => {
               onMouseDown={(e) => handleMouseDown(e, app)}
             >
               <div className="window-title">
-                <span className="window-icon">{config.icon}</span>
+                <img src={config.icon} alt="" className="window-icon" />
                 <span>{config.title}</span>
               </div>
               <div className="window-controls">
@@ -264,7 +257,6 @@ const Desktop = () => {
           </div>
         );
       })}
-
       {/* Taskbar */}
       <div className="taskbar">
         <div className="start-section" ref={startMenuRef}>
@@ -290,7 +282,7 @@ const Desktop = () => {
                     setStartMenuOpen(false);
                   }}
                 >
-                  <span className="menu-icon">&gt;_</span>
+                  <img src="/icons/terminal.png" alt="" className="menu-icon" />
                   <span>Terminal</span>
                 </div>
                 <div
@@ -300,7 +292,7 @@ const Desktop = () => {
                     setStartMenuOpen(false);
                   }}
                 >
-                  <span className="menu-icon">📄</span>
+                  <img src="/icons/document.png" alt="" className="menu-icon" />
                   <span>Legacy Resume</span>
                 </div>
                 <div className="start-menu-divider"></div>
@@ -311,7 +303,7 @@ const Desktop = () => {
                     setStartMenuOpen(false);
                   }}
                 >
-                  <span className="menu-icon">👤</span>
+                  <img src="/icons/user.png" alt="" className="menu-icon" />
                   <span>About Me</span>
                 </div>
                 <div
@@ -321,7 +313,7 @@ const Desktop = () => {
                     setStartMenuOpen(false);
                   }}
                 >
-                  <span className="menu-icon">📁</span>
+                  <img src="/icons/folder.png" alt="" className="menu-icon" />
                   <span>Projects</span>
                 </div>
                 <div
@@ -331,7 +323,7 @@ const Desktop = () => {
                     setStartMenuOpen(false);
                   }}
                 >
-                  <span className="menu-icon">✉️</span>
+                  <img src="/icons/contact.png" alt="" className="menu-icon" />
                   <span>Contact</span>
                 </div>
               </div>
@@ -358,7 +350,7 @@ const Desktop = () => {
                   }
                 }}
               >
-                <span className="program-icon">{config.icon}</span>
+                <img src={config.icon} alt="" className="program-icon" />
                 <span className="program-title">{config.title}</span>
               </button>
             );

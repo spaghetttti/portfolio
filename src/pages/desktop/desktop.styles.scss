@@ -42,40 +42,12 @@
       background-color: rgba(0, 0, 128, 0.5);
     }
 
-    .icon-image {
+    img.icon-image {
       width: 48px;
       height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #c0c0c0 0%, #e0e0e0 50%, #c0c0c0 100%);
-      border: 2px outset #dfdfdf;
       margin-bottom: 4px;
-      font-size: 24px;
-
-      &.terminal-icon {
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-        color: #00ff00;
-        font-family: 'VT323', monospace;
-        font-size: 28px;
-        font-weight: bold;
-      }
-
-      &.legacy-icon {
-        background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
-      }
-
-      &.about-icon {
-        background: linear-gradient(135deg, #87ceeb 0%, #4169e1 100%);
-      }
-
-      &.folder-icon {
-        background: linear-gradient(135deg, #ffd700 0%, #daa520 100%);
-      }
-
-      &.contact-icon {
-        background: linear-gradient(135deg, #f0f0f0 0%, #d0d0d0 100%);
-      }
+      image-rendering: pixelated;
+      object-fit: contain;
     }
 
     .icon-label {
@@ -208,10 +180,11 @@
         color: white;
       }
 
-      .menu-icon {
-        width: 20px;
-        text-align: center;
-        font-size: 14px;
+      img.menu-icon {
+        width: 16px;
+        height: 16px;
+        image-rendering: pixelated;
+        object-fit: contain;
       }
     }
 
@@ -303,8 +276,11 @@
       white-space: nowrap;
       text-overflow: ellipsis;
 
-      .window-icon {
-        font-size: 14px;
+      img.window-icon {
+        width: 16px;
+        height: 16px;
+        image-rendering: pixelated;
+        object-fit: contain;
       }
     }
 
@@ -458,8 +434,11 @@
       opacity: 0.7;
     }
 
-    .program-icon {
-      font-size: 12px;
+    img.program-icon {
+      width: 16px;
+      height: 16px;
+      image-rendering: pixelated;
+      object-fit: contain;
       flex-shrink: 0;
     }
 
