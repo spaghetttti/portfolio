@@ -5,9 +5,9 @@ import { ThemeProvider } from "styled-components";
 import { useTheme } from "../terminal/hooks/useTheme";
 import GlobalStyle from "../terminal/components/styles/GlobalStyle";
 import Home from "../home/home.page";
-import About from "../about/about.page";
-import ProjectsPage from "../projects/projects.page";
-import Contact from "../contact/contact.page";
+import NotepadAbout from "../about/notepad.page";
+import Explorer from "../projects/explorer.page";
+import ContactForm from "../contact/contact-form.page";
 
 // Wrapper for Terminal with theme
 const TerminalWrapper = () => {
@@ -35,10 +35,10 @@ const Desktop = () => {
   const dragRef = useRef({ isDragging: false, windowId: null, startX: 0, startY: 0 });
 
   const windowConfigs = {
-    terminal: { title: "Terminal", icon: "/icons/terminal.png", defaultWidth: 800, defaultHeight: 500 },
+    terminal: { title: "Command Prompt", icon: "/icons/terminal.png", defaultWidth: 800, defaultHeight: 500 },
     legacy: { title: "Legacy Resume", icon: "/icons/document.png", defaultWidth: 900, defaultHeight: 600 },
-    about: { title: "About Me", icon: "/icons/user.png", defaultWidth: 800, defaultHeight: 550 },
-    projects: { title: "Projects", icon: "/icons/folder.png", defaultWidth: 850, defaultHeight: 550 },
+    about: { title: "About Me - Notepad", icon: "/icons/notepad.png", defaultWidth: 800, defaultHeight: 550 },
+    projects: { title: "My Projects - Explorer", icon: "/icons/folder.png", defaultWidth: 850, defaultHeight: 550 },
     contact: { title: "Contact", icon: "/icons/contact.png", defaultWidth: 750, defaultHeight: 500 },
   };
 
@@ -149,11 +149,11 @@ const Desktop = () => {
       case "legacy":
         return <Home />;
       case "about":
-        return <About />;
+        return <NotepadAbout />;
       case "projects":
-        return <ProjectsPage />;
+        return <Explorer />;
       case "contact":
-        return <Contact />;
+        return <ContactForm />;
       default:
         return null;
     }

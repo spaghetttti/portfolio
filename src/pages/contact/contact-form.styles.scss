@@ -1,0 +1,314 @@
+.contact-form-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background: #c0c0c0;
+  font-family: 'MS Sans Serif', 'Segoe UI', Tahoma, sans-serif;
+  font-size: 11px;
+
+  .form-main {
+    display: flex;
+    flex: 1;
+    padding: 10px;
+    gap: 10px;
+    overflow: auto;
+
+    .contact-info-panel {
+      width: 200px;
+      min-width: 180px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .info-group {
+        .info-label {
+          display: block;
+          margin-bottom: 4px;
+          font-weight: bold;
+          color: #000;
+        }
+
+        .info-box {
+          background: #ffffff;
+          border: 2px inset #808080;
+          padding: 8px;
+
+          .info-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 4px 0;
+            border-bottom: 1px solid #e0e0e0;
+
+            &:last-child {
+              border-bottom: none;
+            }
+
+            .info-icon {
+              font-size: 14px;
+              width: 20px;
+              text-align: center;
+            }
+
+            .info-text {
+              font-size: 11px;
+              color: #000;
+              word-break: break-all;
+            }
+          }
+        }
+
+        .status-box {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          background: #ffffff;
+          border: 2px inset #808080;
+          padding: 8px;
+
+          .status-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #808080;
+
+            &.online {
+              background: #00aa00;
+              box-shadow: 0 0 4px #00aa00;
+            }
+
+            &.offline {
+              background: #aa0000;
+            }
+          }
+        }
+      }
+    }
+
+    .email-form-panel {
+      flex: 1;
+      min-width: 280px;
+
+      .form-group {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .form-label {
+          display: block;
+          margin-bottom: 4px;
+          font-weight: bold;
+          color: #000;
+        }
+
+        .win98-form {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          background: #ffffff;
+          border: 2px inset #808080;
+          padding: 12px;
+
+          .form-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            gap: 8px;
+
+            label {
+              min-width: 60px;
+              text-align: right;
+              color: #000;
+            }
+
+            input {
+              flex: 1;
+              padding: 4px 6px;
+              border: 2px inset #808080;
+              background: #ffffff;
+              font-family: inherit;
+              font-size: 11px;
+
+              &:focus {
+                outline: none;
+                background: #ffffcc;
+              }
+            }
+
+            &.message-row {
+              flex: 1;
+              align-items: flex-start;
+
+              label {
+                padding-top: 4px;
+              }
+
+              textarea {
+                flex: 1;
+                min-height: 80px;
+                padding: 4px 6px;
+                border: 2px inset #808080;
+                background: #ffffff;
+                font-family: inherit;
+                font-size: 11px;
+                resize: none;
+
+                &:focus {
+                  outline: none;
+                  background: #ffffcc;
+                }
+              }
+            }
+          }
+
+          .form-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid #808080;
+          }
+        }
+      }
+    }
+
+    .clippy-panel {
+      width: 160px;
+      min-width: 140px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 20px;
+
+      .clippy-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+
+        .clippy-image {
+          width: 100px;
+          height: auto;
+          image-rendering: auto;
+          filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.3));
+        }
+
+        .clippy-bubble {
+          position: relative;
+          background: #ffffcc;
+          border: 2px solid #000;
+          border-radius: 8px;
+          padding: 10px;
+          max-width: 150px;
+          box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+
+          &::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid #000;
+          }
+
+          &::after {
+            content: '';
+            position: absolute;
+            top: -7px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 8px solid #ffffcc;
+          }
+
+          .bubble-content {
+            font-size: 10px;
+            line-height: 1.4;
+            color: #000;
+            white-space: pre-line;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+
+  .win98-button {
+    padding: 4px 16px;
+    background: #c0c0c0;
+    border: 2px outset #dfdfdf;
+    font-family: 'MS Sans Serif', 'Segoe UI', Tahoma, sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+    min-width: 70px;
+
+    &:active:not(:disabled) {
+      border: 2px inset #808080;
+    }
+
+    &:hover:not(:disabled) {
+      background: #d4d4d4;
+    }
+
+    &:disabled {
+      color: #808080;
+      cursor: not-allowed;
+    }
+
+    &:focus {
+      outline: 1px dotted #000;
+      outline-offset: -4px;
+    }
+  }
+
+  .contact-statusbar {
+    display: flex;
+    align-items: center;
+    padding: 2px 8px;
+    background: #c0c0c0;
+    border-top: 2px inset #808080;
+    font-size: 11px;
+    min-height: 20px;
+    color: #000;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .contact-form-container {
+    .form-main {
+      flex-direction: column;
+
+      .contact-info-panel,
+      .clippy-panel {
+        width: 100%;
+        min-width: unset;
+      }
+
+      .clippy-panel {
+        order: -1;
+        padding-top: 0;
+        padding-bottom: 10px;
+        
+        .clippy-container {
+          flex-direction: row;
+          
+          .clippy-image {
+            width: 60px;
+          }
+
+          .clippy-bubble {
+            &::before, &::after {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
