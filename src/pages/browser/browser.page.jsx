@@ -167,7 +167,10 @@ const Browser = () => {
     if (currentTab.type === "iframe") {
       const iframe = document.getElementById(`iframe-${currentTab.id}`);
       if (iframe) {
-        iframe.src = iframe.src;
+        // Force iframe reload by resetting src
+        const currentSrc = iframe.src;
+        iframe.src = "";
+        iframe.src = currentSrc;
       }
     }
   };
