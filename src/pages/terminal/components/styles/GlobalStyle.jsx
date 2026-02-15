@@ -8,6 +8,7 @@ const GlobalStyle = createGlobalStyle`
     border-width: 0;
     border-style: solid;
     border-color: theme('borderColor.DEFAULT', currentColor);
+    font-family: inherit;
   }
 
   blockquote, dl, dd, h1, h2, h3,
@@ -25,13 +26,18 @@ const GlobalStyle = createGlobalStyle`
     display: block;
   }
 
-  body {
+  body, html {
     font-family: 'Lucida Console', 'Courier New', 'Consolas', monospace;
     font-weight: 400;
     font-size: 14px;
     line-height: 1.4;
     background-color: ${({ theme }) => theme.colors?.body};
     color: ${({ theme }) => theme.colors?.text[100]};
+  }
+
+  div, span, p, a, label, pre {
+    font-family: 'Lucida Console', 'Courier New', 'Consolas', monospace;
+    background-color: transparent;
   }
 
   /* ===== Custom Scroll Bar - Win98 style ===== */
@@ -56,7 +62,7 @@ const GlobalStyle = createGlobalStyle`
   input[type=text] {
     font-family: 'Lucida Console', 'Courier New', 'Consolas', monospace;
     font-size: 14px;
-    background-color: ${({ theme }) => theme.colors?.body};
+    background-color: transparent;
     color: ${({ theme }) => theme.colors?.text[100]};
     caret-color: ${({ theme }) => theme.colors?.primary};
   }

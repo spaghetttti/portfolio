@@ -3,16 +3,18 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   padding: 1.25rem;
   padding-top: 0.75rem;
-
   display: flex;
   flex-direction: column-reverse;
   max-height: calc(100vh - 2rem);
   overflow-y: auto;
+  background-color: ${({ theme }) => theme.colors?.body};
+  font-family: 'Lucida Console', 'Courier New', 'Consolas', monospace;
 `;
 
 export const CmdNotFound = styled.div`
   margin-top: 0.25rem;
   margin-bottom: 1rem;
+  color: ${({ theme }) => theme.colors?.text[100]};
 `;
 
 export const Empty = styled.div`
@@ -42,6 +44,8 @@ export const Form = styled.form`
 
 export const Input = styled.input`
   flex-grow: 1;
+  background: transparent !important;
+  font-family: 'Lucida Console', 'Courier New', 'Consolas', monospace !important;
 
   @media (max-width: 550px) {
     min-width: 85%;
@@ -50,4 +54,5 @@ export const Input = styled.input`
 
 export const Hints = styled.span`
   margin-right: 0.875rem;
+  color: ${({ theme }) => theme.colors?.text[200]};
 `;

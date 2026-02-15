@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 export const OutputContainer = styled.div`
   padding-bottom: 0.25rem;
+  font-family: 'Lucida Console', 'Courier New', 'Consolas', monospace;
+  color: ${({ theme }) => theme.colors?.text[100]};
 `;
 
 export const Wrapper = styled.div`

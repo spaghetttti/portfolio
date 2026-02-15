@@ -15,7 +15,7 @@ const TerminalWrapper = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <div style={{ height: "100%", overflow: "auto" }}>
+      <div style={{ height: "100%", overflow: "auto", backgroundColor: theme.colors?.body }}>
         <Terminal />
       </div>
     </ThemeProvider>

@@ -1,19 +1,15 @@
-import { DefaultTheme } from "styled-components";
-
-// export type Themes = {
-//   [key: string]: DefaultTheme;
-// };
+// Theme definitions for terminal
 
 const theme = {
   win98: {
     id: "T_001",
     name: "win98",
     colors: {
-      body: "#000000",
+      body: "#000080",
       scrollHandle: "#C0C0C0",
       scrollHandleHover: "#808080",
-      primary: "#C0C0C0",
-      secondary: "#FFFFFF",
+      primary: "#FFFFFF",
+      secondary: "#FFFF00",
       text: {
         100: "#C0C0C0",
         200: "#A0A0A0",
