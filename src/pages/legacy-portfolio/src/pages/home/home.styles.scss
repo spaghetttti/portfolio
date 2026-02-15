@@ -1,0 +1,190 @@
+.home-page {
+  background-color: #d8b785;
+  font-family: "Ibarra Real Nova", serif;
+
+  .text-zone {
+    z-index: 300;
+    width: 40%;
+    margin-left: 10vw;
+    padding-top: 20vh;
+    position: relative;
+    text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.326);
+  }
+
+  h1 {
+    color: #fff;
+    font-size: 70px;
+    margin: 0;
+    font-weight: 400;
+    letter-spacing: -1px;
+
+
+    img {
+      width: 52px;
+      margin-left: 20px;
+      opacity: 0;
+      height: auto;
+      animation: rotateIn 1s linear both;
+      animation-delay: 1.4s;
+    }
+  }
+
+  .overall-logo {
+    //positioning of both logo here for convenience
+    position: absolute;
+    top: 0;
+    right: 15%;
+    bottom: 0;
+    left: auto;
+    margin: auto;
+    width: 390px;
+    height: 689px;
+
+    #logo1,
+    .logo-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+    }
+  }
+
+  #logo1 {
+    z-index: 0;
+  }
+
+  #logo1 path:nth-child(1) {
+    stroke-dasharray: 7479;
+    stroke-dashoffset: 7479;
+    animation: line-anim 15s ease forwards 2.5;
+  }
+
+  #logo1 path:nth-child(2) {
+    stroke-dasharray: 1877;
+    stroke-dashoffset: 1877;
+    animation: line-anim 10s ease forwards 2.4;
+  }
+
+  #logo1 path:nth-child(3) {
+    stroke-dasharray: 310;
+    stroke-dashoffset: 310;
+    animation: line-anim 10s ease forwards 2.7;
+  }
+
+  #logo1 path:nth-child(4) {
+    stroke-dasharray: 307;
+    stroke-dashoffset: 307;
+    animation: line-anim 10s ease forwards 2.9;
+  }
+
+  #logo1 path:nth-child(5) {
+    stroke-dasharray: 521;
+    stroke-dashoffset: 521;
+    animation: line-anim 10s ease forwards 2.4;
+  }
+
+  #logo1 path:nth-child(6) {
+    stroke-dasharray: 8657;
+    stroke-dashoffset: 8657;
+    animation: line-anim 10s ease forwards 3.0;
+  }
+
+  @keyframes line-anim {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+}
+
+h2 {
+  color: #fffdfd;
+  margin-top: 20px;
+  font-weight: 600;
+  font-size: 28px;
+  letter-spacing: 2px;
+  animation: fadeIn 1s 1.8s backwards;
+  font-family: "Smooch Sans", sans-serif;
+}
+
+.flat-button {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  font-family: "Smooch Sans", sans-serif;
+  text-decoration: none;
+  padding: 10px 18px;
+  border: 1px solid #fff;
+  margin-top: 25px;
+  float: left;
+  animation: fadeIn 1s 1.8s backwards;
+  transition: 0.3s;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: #a43838;
+  }
+}
+
+.new-line {
+  display: none;
+}
+
+/* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+  .home-page > .text-zone {
+    width: 84% !important;
+    text-align: center;
+    background-color: rgba(216, 183, 133, 0.3215686275);
+    padding-bottom: 10%;
+
+    h1 {
+      font-size: 55px;
+    }
+
+    .flat-button {
+        float: none ;
+    }
+  }
+
+  .overall-logo {
+    #logo1,
+    .logo-container {
+      width: 320px !important;
+      height: 565px;
+      right: 0%;
+      left: 0%;
+    }
+  }
+
+  .new-line {
+    display: block !important;
+  }
+}
+
+
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2) { 
+    .text-zone {
+        h1 {
+            font-size: 70px;
+        }
+    }
+
+    .overall-logo {
+        #logo1,
+        .logo-container {
+          width: 370px !important;
+        }
+    }
+}

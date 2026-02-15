@@ -11,7 +11,7 @@ const About = () => {
   useEffect(() => {
     const AnimateHover = setTimeout(() => {
       setLetterClass("text-animate-hover");
-    }, 4000);
+    }, 2000);
     return () => clearTimeout(AnimateHover);
   }, []);
 
@@ -27,25 +27,21 @@ const About = () => {
             />
           </h1>
           <p>
-            Experienced Full-Stack Developer | JavaScript/TypeScript/Java |
-            AWS/Docker | React.js/Node.js/Next.js |
-            Git/MySQL/PostgreSQL/MongoDB/Firebase
+            Software Engineer with 4+ years of experience in full-stack development, 
+            building scalable systems and user-focused applications across telecommunications, 
+            sports, travel, and enterprise domains.
           </p>
           <p>
-            I am a skilled Full-Stack Developer with proficiency in JavaScript,
-            TypeScript, and Java, alongside a strong technical background in
-            React.js, Node.js, Next.js, Docker, and AWS. My expertise covers
-            cloud services, Git-based version control, and database management,
-            including MySQL, PostgreSQL, MongoDB, and Firebase. I also have
-            experience implementing unit tests with Jest and Mocha.
+            Currently working as a Backend/DevSecOps Engineer at Orange in Paris, 
+            delivering high-availability middleware systems handling millions of daily requests. 
+            I specialize in architecting modern solutions, building CI/CD pipelines, and 
+            leading teams to develop automation tools and migrate legacy applications.
           </p>
           <p>
-            With a solid track record in developing scalable, high-performance
-            web applications, I’m eager to join a team working on innovative
-            solutions. I bring dedication, adaptability, and a passion for
-            tackling complex problems in the tech industry. If you’re looking
-            for a committed developer to help bring your projects to life, let’s
-            collaborate and build something remarkable together.
+            My expertise spans full-stack development with React, Next.js, Angular, 
+            Spring Boot, Node.js, and Django, combined with DevOps practices using 
+            Docker, AWS, and CI/CD automation. I'm passionate about optimizing performance, 
+            enhancing security, and creating seamless user experiences from design to deployment.
           </p>
 
           {/* <DownloadFiles /> */}
