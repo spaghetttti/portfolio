@@ -4,6 +4,7 @@ import './App.scss';
 
 import Layout from './pages/layout/layout.component.jsx';
 import Desktop from './pages/desktop/desktop.page.jsx';
+import TerminalPage from './pages/terminal/terminal.page.jsx';
 import Home from './pages/home/home.page.jsx';
 import About from './pages/about/about.page';
 import Projects from './pages/projects/projects.page';
@@ -15,6 +16,7 @@ function App() {
     <>
       <Routes>
         <Route path='/' element={<Desktop/>}/>
+        <Route path='/terminal' element={<TerminalPage/>}/>
         <Route path='/' element={<Layout/>}>
           <Route path='legacy' element={<Home/>}/>
           <Route path='about' element={<About/>}/>

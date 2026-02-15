@@ -35,7 +35,7 @@ const Desktop = () => {
 
   const handleIconDoubleClick = (app) => {
     if (app === "terminal") {
-      window.open("/terminal-project/", "_blank");
+      navigate("/terminal");
     } else if (app === "legacy") {
       navigate("/legacy");
     } else if (app === "about") {

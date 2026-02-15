@@ -8,7 +8,7 @@ import {
   faPython,
   faJava,
 } from "@fortawesome/free-brands-svg-icons";
-import { SiSpringboot, SiTypescript } from "react-icons/si";
+import { SiTypescript } from "react-icons/si";
 
 const Cube1 = () => {
   const [show, setShow] = useState("front");
