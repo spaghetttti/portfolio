@@ -10,7 +10,8 @@ export const CmdList = styled.div`
 `;
 
 export const Cmd = styled.span`
-  color: ${({ theme }) => theme.colors?.primary};
+  color: ${({ theme }) => theme.colors?.secondary};
+  text-transform: uppercase;
 `;
 
 export const CmdDesc = styled.span`
@@ -25,6 +26,7 @@ export const CmdDesc = styled.span`
 export const KeyContainer = styled.div`
   font-size: 0.875rem;
   margin-top: 1rem;
+  color: ${({ theme }) => theme.colors?.text[300]};
 
   @media (max-width: 550px) {
     display: none;

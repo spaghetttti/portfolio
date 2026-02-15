@@ -26,16 +26,18 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: 'IBM Plex Mono', monospace;
-    font-weight: 500;
+    font-family: 'Lucida Console', 'Courier New', 'Consolas', monospace;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.4;
     background-color: ${({ theme }) => theme.colors?.body};
     color: ${({ theme }) => theme.colors?.text[100]};
   }
 
-  /* ===== Custom Scroll Bar ===== */
+  /* ===== Custom Scroll Bar - Win98 style ===== */
   /* width */
   ::-webkit-scrollbar {
-    width: 15px;
+    width: 16px;
   }
   /* Track */
   ::-webkit-scrollbar-track {
@@ -44,6 +46,7 @@ const GlobalStyle = createGlobalStyle`
   /* Handle */
   ::-webkit-scrollbar-thumb {
     background: ${({ theme }) => theme.colors?.scrollHandle};
+    border: 2px outset #dfdfdf;
   }
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
@@ -51,6 +54,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   input[type=text] {
+    font-family: 'Lucida Console', 'Courier New', 'Consolas', monospace;
+    font-size: 14px;
     background-color: ${({ theme }) => theme.colors?.body};
     color: ${({ theme }) => theme.colors?.text[100]};
     caret-color: ${({ theme }) => theme.colors?.primary};

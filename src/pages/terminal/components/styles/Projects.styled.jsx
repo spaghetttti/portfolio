@@ -12,13 +12,12 @@ export const ProjectsIntro = styled.div`
 `;
 
 export const ProjectTitle = styled.div`
-  font-weight: 700;
+  color: ${({ theme }) => theme.colors?.secondary};
   margin-bottom: 0.25rem;
 `;
 
 export const ProjectDesc = styled.div`
   color: ${({ theme }) => theme.colors?.text[200]};
-  text-align: justify;
   line-height: 1.5rem;
-  max-width: 500px;
+  max-width: 600px;
 `;

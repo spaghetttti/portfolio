@@ -1,12 +1,44 @@
 import { DefaultTheme } from "styled-components";
 
-export type Themes = {
-  [key: string]: DefaultTheme;
-};
+// export type Themes = {
+//   [key: string]: DefaultTheme;
+// };
 
-const theme: Themes = {
-  dark: {
+const theme = {
+  win98: {
     id: "T_001",
+    name: "win98",
+    colors: {
+      body: "#000000",
+      scrollHandle: "#C0C0C0",
+      scrollHandleHover: "#808080",
+      primary: "#C0C0C0",
+      secondary: "#FFFFFF",
+      text: {
+        100: "#C0C0C0",
+        200: "#A0A0A0",
+        300: "#808080",
+      },
+    },
+  },
+  winxp: {
+    id: "T_002",
+    name: "winxp",
+    colors: {
+      body: "#000000",
+      scrollHandle: "#C0C0C0",
+      scrollHandleHover: "#808080",
+      primary: "#FFFFFF",
+      secondary: "#00FF00",
+      text: {
+        100: "#FFFFFF",
+        200: "#C0C0C0",
+        300: "#808080",
+      },
+    },
+  },
+  dark: {
+    id: "T_003",
     name: "dark",
     colors: {
       body: "#1D2A35",
@@ -22,7 +54,7 @@ const theme: Themes = {
     },
   },
   light: {
-    id: "T_002",
+    id: "T_004",
     name: "light",
     colors: {
       body: "#EFF3F3",
@@ -38,7 +70,7 @@ const theme: Themes = {
     },
   },
   "blue-matrix": {
-    id: "T_003",
+    id: "T_005",
     name: "blue-matrix",
     colors: {
       body: "#101116",
@@ -54,7 +86,7 @@ const theme: Themes = {
     },
   },
   espresso: {
-    id: "T_004",
+    id: "T_006",
     name: "espresso",
     colors: {
       body: "#323232",
@@ -70,7 +102,7 @@ const theme: Themes = {
     },
   },
   "green-goblin": {
-    id: "T_005",
+    id: "T_007",
     name: "green-goblin",
     colors: {
       body: "#000000",
@@ -86,7 +118,7 @@ const theme: Themes = {
     },
   },
   ubuntu: {
-    id: "T_006",
+    id: "T_008",
     name: "ubuntu",
     colors: {
       body: "#2D0922",

@@ -3,7 +3,7 @@ import themes from "../components/styles/themes";
 import { setToLS, getFromLS } from "../utils/storage";
 
 export const useTheme = () => {
-  const [theme, setTheme] = useState(themes.dark);
+  const [theme, setTheme] = useState(themes.win98);
   const [themeLoaded, setThemeLoaded] = useState(false);
 
   const setMode = (mode) => {
@@ -13,7 +13,7 @@ export const useTheme = () => {
 
   useEffect(() => {
     const localThemeName = getFromLS("terminal-theme");
-    localThemeName ? setTheme(themes[localThemeName]) : setTheme(themes.dark);
+    localThemeName ? setTheme(themes[localThemeName]) : setTheme(themes.win98);
     setThemeLoaded(true);
   }, []);
 

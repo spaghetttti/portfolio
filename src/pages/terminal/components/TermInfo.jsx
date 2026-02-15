@@ -1,9 +1,9 @@
-import { User, WebsiteName, Wrapper } from "./styles/TerminalInfo.styled";
+import { Wrapper, Path } from "./styles/TerminalInfo.styled";
 
 const TermInfo = () => {
   return (
     <Wrapper>
-      <User>visitor</User>@<WebsiteName>asilbek.dev</WebsiteName>:~$
+      <Path>C:\Users\Asilbek</Path>&gt;
     </Wrapper>
   );
 };

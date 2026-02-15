@@ -8,7 +8,7 @@ export const EduList = styled.div`
   margin-bottom: 1rem;
 
   .title {
-    font-weight: 700;
+    color: ${({ theme }) => theme.colors?.secondary};
     margin-bottom: 0.275rem;
   }
 

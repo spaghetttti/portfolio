@@ -10,9 +10,9 @@ export const AboutWrapper = styled.div`
 `;
 
 export const HighlightSpan = styled.span`
-  font-weight: 700;
+  color: ${({ theme }) => theme.colors?.secondary};
 `;
 
 export const HighlightAlt = styled.span`
-  font-weight: 700;
+  color: ${({ theme }) => theme.colors?.primary};
 `;
